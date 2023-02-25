@@ -1,0 +1,62 @@
+﻿<Page x:Class="GlazAlmaz.Pages.TovarPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GlazAlmaz.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TovarPage" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="150" Margin="10">
+                <TextBlock Text="категория"/>
+                <ComboBox Name="cbKategory" DisplayMemberPath="Name"/>
+            </StackPanel>
+            <StackPanel Width="150" Margin="10">
+                <TextBlock Text="Цена"/>
+                <ComboBox Name="cbCena" SelectionChanged="ChangeCena"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Поиск"/>
+                <TextBox Name="tbSearch" TextChanged="tbSearchTextChange" Width="250" Height="30"/>
+            </StackPanel>
+
+        </StackPanel>
+       
+        <StackPanel Grid.Row="2" HorizontalAlignment="Right" Orientation="Horizontal" >
+            <Button Name="btnAddZakaz" Content="Добавть в заказ" Click="btnAddZClick" Width="100"  Margin="10" />
+            <Button Name="btnAdd" Content="Добавить" Click="btnADdClick" Width="100"  Margin="10" />
+            <Button Name="btnChange" Content="Изменить" Click="btnChangeClick" Width="100" Margin="10"/>
+            <Button Name="btnDelete" Content="Удалить" Click="btnDeleteClick" Width="100" Margin="10"/>
+            </StackPanel>
+            <ListView Grid.Row="1"  VerticalAlignment="Center" Name="lvTovars">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="150" Width="750">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="120" Width="100" Source="{Binding Photo, TargetNullValue={StaticResource  Zaglushka }}" HorizontalAlignment="Left"/>
+                            <StackPanel Orientation="Vertical" >
+                                <TextBlock Text="{Binding Name}" Margin="5"/>
+                                <TextBlock Text="{Binding Kategory}" Margin="5"/>
+                                <TextBlock Text="{Binding Price}" Margin="5"/>
+                                <TextBlock Text="{Binding Opisanie}" Margin="5"/>                                
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -1,0 +1,42 @@
+﻿<Window x:Class="GlazAlmaz.Windows.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GlazAlmaz.Windows"
+        mc:Ignorable="d"
+        Title="AddWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
+            <TextBlock HorizontalAlignment="Center" Text="Добавление" FontSize="24" Name="tblTitle"/>
+            <StackPanel>
+                <TextBlock Text="Название"/>
+                <TextBox Text="{Binding Name}"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Цена"/>
+                <TextBox Text="{Binding Price}"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Описание"/>
+                <TextBox Text="{Binding Opisanie}"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Номер поставщика"/>
+                <TextBox Text="{Binding PostavshikNumber}"/>
+            </StackPanel>
+           
+            <StackPanel>
+                <TextBlock Text="Категория"/>
+                <ComboBox DisplayMemberPath="Name" Name="cbKategory" Text="{Binding Kategory}"/>
+            </StackPanel>
+            <StackPanel Margin="10">
+                <TextBlock Text="Фото"/>
+                <Button Name="btnAddPhoto" Content="Добавить фото" Click="btnAddPhotoClick"/>
+            </StackPanel>
+
+            <Button Name="btnAdd" Content="Добавить" Click="btnAddClick" />
+        </StackPanel>
+        <Image HorizontalAlignment="Left" Margin="100,100" Width="120" Height="200" Source="{Binding Photo, TargetNullValue={StaticResource Zaglushka}}" Name="imgPhoto"/>
+    </Grid>
+</Window>
