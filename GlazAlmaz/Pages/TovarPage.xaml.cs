@@ -104,5 +104,10 @@ namespace GlazAlmaz.Pages
                 
             }
         }
+
+        private void btnBackClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

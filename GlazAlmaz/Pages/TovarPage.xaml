@@ -58,5 +58,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Name="btnLogout" Click="btnBackClick" Content="Выйти" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20"/>
     </Grid>
 </Page>
